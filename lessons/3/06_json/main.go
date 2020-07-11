@@ -8,10 +8,9 @@ import (
 )
 
 func main() {
-	s := structs.Person{
-		Name:    "name",
-		Surname: "surname",
-	}
+	s := structs.Person{}
+	s.Name = "name"
+	s.Surname = "surname"
 	data, err := json.Marshal(s)
 	if err != nil {
 		log.Fatal(err)
