@@ -23,4 +23,18 @@ func main() {
 
 	fmt.Println(marshal)
 	fmt.Println(string(marshal))
+
+	stringMarshal := string(marshal)
+	fmt.Println(stringMarshal)
+	byteStringMarshal := []byte(stringMarshal)
+	fmt.Println(byteStringMarshal)
+
+	m2 := Message{}
+	err1 := json.Unmarshal(byteStringMarshal, &m2)
+	if err1 != nil {
+		log.Println(err1)
+		return
+	}
+	fmt.Println(m2)
+	// fmt.Println(string(b))
 }
