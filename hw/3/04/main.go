@@ -11,9 +11,12 @@ import (
 	"os"
 )
 
+type JSONPhoneNums struct {
+	book struct{}
+}
 type PhoneNums struct {
 	Name string
-	Nums []int
+	Nums interface{}
 }
 
 func main() {
@@ -21,7 +24,7 @@ func main() {
 	alex := PhoneNums{}
 
 	eugene.Name = "Eugene"
-	eugene.Nums = []int{9630808098, 9222338133}
+	eugene.Nums = []int{9630958098, 9222128133}
 	fmt.Println(eugene)
 
 	alex.Name = "Alex"
@@ -46,9 +49,8 @@ func main() {
 		os.Exit(1)
 	}
 	defer file.Close()
-	file.WriteString(string(jsonEugene))
-	file.WriteString("\n")
-	file.WriteString(string(jsonAlex))
+
+	file.WriteString(string(jsonEugene) + string(jsonAlex))
 
 	fmt.Println("Done.")
 }
