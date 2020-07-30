@@ -20,4 +20,5 @@ func main() {
 		fmt.Println(name)
 		ph.ViewList()
 	}
+	fmt.Println(adressBook)
 }

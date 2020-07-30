@@ -1,7 +1,21 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"runtime"
+)
 
+func somefunc() bool {
+	return true
+}
 func main() {
-	fmt.Println("Hello, Go")
+	runtime.GOMAXPROCS(1)
+
+	done := false
+
+	done = somefunc()
+	for !done {
+		fmt.Println("Not done")
+	}
+	fmt.Println("finished")
 }
