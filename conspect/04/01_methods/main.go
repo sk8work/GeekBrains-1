@@ -9,7 +9,7 @@ import (
 	"math"
 )
 
-// Circle - простая структура дял оописаня круга
+// Circle - простая структура дял описания круга
 type Circle struct {
 	radius int
 }
@@ -20,7 +20,7 @@ func (c Circle) Area() float64 {
 	return math.Pi * float64(c.radius) * float64(c.radius)
 }
 
-// ChangeRadius - метод, кооторый может изменить
+// ChangeRadius - метод, который может изменить
 // значение радиуса в конкретной структуре Circle
 func (c *Circle) ChangeRadius(radius int) {
 	c.radius = radius
@@ -28,9 +28,13 @@ func (c *Circle) ChangeRadius(radius int) {
 
 func main() {
 	c1 := Circle{5}
-	fmt.Println(c1)
+	fmt.Println(c1, &c1)
+	c1.ChangeRadius(10)
+	fmt.Println(c1, &c1)
 	fmt.Println(c1.Area())
-	c1.ChangeRadius(2)
-	fmt.Println(c1.Area())
-
+	c2 := Circle{6}
+	fmt.Println(c2, &c2)
+	c2.ChangeRadius(8)
+	fmt.Println(c2, &c2)
+	fmt.Println(c2.Area())
 }

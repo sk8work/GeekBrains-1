@@ -3,46 +3,28 @@
 package main
 
 import (
+	"GeekBrains-1/conspect/04/02_interfaces/interfaces"
 	"fmt"
-	"math"
 )
 
-type Square struct {
-	edge float64
-}
-
-func (s Square) Area() float64 {
-	return s.edge * s.edge
-}
-
-type Circle struct {
-	radius float64
-}
-
-func (c Circle) Area() float64 {
-	return math.Pi * c.radius
-}
-
-func SummAreas(shapes ...Shape) float64 {
-	res := 0.0
-	for _, shape := range shapes {
-		if shape == nil {
-			continue
-		}
-		res += shape.Area()
-	}
-	return res
-}
-
-type Shape interface {
-	Area() float64
-}
-
 func main() {
-	firstCircle := Circle{10}
-	secondCircle := Circle{15}
-	firstSquare := Square{10}
-	total := SummAreas(firstCircle, secondCircle, firstSquare)
 
-	fmt.Println(total)
+	// s1 := Square{5}
+	// c1 := Circle{3}
+	// s1.Area()
+	// c1.Area()
+	// fmt.Println(s1)
+	// fmt.Println(c1)
+
+	firstCircle := interfaces.Circle{10}
+	secondCircle := interfaces.Circle{15}
+	firstSquare := interfaces.Square{10}
+
+	fmt.Println(firstCircle, secondCircle, firstSquare)
+	fmt.Println(firstCircle.Area(), firstCircle.Perim())
+
+	totalAreas := interfaces.SummAreas(firstCircle, secondCircle, firstSquare)
+	fmt.Println(totalAreas)
+	totalPerims := interfaces.SummPerims(firstCircle, secondCircle, firstSquare)
+	fmt.Println(totalPerims)
 }

@@ -8,10 +8,14 @@ import (
 func main() {
 	s := structs.Person{}
 	fmt.Println(s)
-	fmt.Printf("%+v", s)
+	fmt.Printf("%+v\n", s)
 
+	// s.Name = "Vasya"
+	// s.SetSurname("Pupkin")
+	// fmt.Println(s)
+	// fmt.Printf("%+v", s)
 	s.Name = "Vasya"
+	fmt.Println(s)
 	s.SetSurname("Pupkin")
 	fmt.Println(s)
-	fmt.Printf("%+v", s)
 }

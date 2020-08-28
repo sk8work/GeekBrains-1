@@ -11,15 +11,16 @@ func f() bool {
 func main() {
 	i := 2
 
-	if i%2 == 0 && i == 2 {
+	if i%2 == 0 {
 		fmt.Println("Hello")
 	} else {
-		fmt.Println("World")
+		fmt.Println("wrld")
 	}
 
-	if f() {
-		fmt.Println("true")
+	if f() == true {
+		fmt.Println(true)
 	} else {
-		fmt.Println("false")
+		fmt.Println(false)
 	}
+
 }

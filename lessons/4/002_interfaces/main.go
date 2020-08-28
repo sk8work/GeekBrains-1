@@ -19,18 +19,18 @@ type A struct {
 }
 
 func (a *A) Inc() error {
-	a.field += 1
+	a.field = a.field + 1
 	return nil
 }
 
 type B struct {
-	fieldTwo uint32
+	field2 uint32
 }
 
 func (b *B) Inc() error {
-	b.fieldTwo += 3
-	if b.fieldTwo > 2 {
-		return fmt.Errorf("Got some invalid fieldTwo: %d", b.fieldTwo)
+	b.field2 += 3
+	if b.field2 > 2 {
+		return fmt.Errorf("Got invalid field2: %d", b.field2)
 	}
 	return nil
 }
@@ -50,24 +50,24 @@ func (iaf *IncrementerAbstractFactory) create(typ int) Incrementer {
 }
 
 func main() {
-	// a := &A{}
-	// b := &B{}
+	a := A{}
+	b := &B{}
 
-	// increment(a)
-	// increment(b)
-	// fmt.Println(a)
-	// fmt.Println(b)
+	increment(&a)
+	increment(b)
 
-	// factory := &IncrementerAbstractFactory{}
-	// aa := factory.create(1)
-	// aa.Inc()
-	// fmt.Println(aa)
+	fmt.Println(a)
+	fmt.Println(b)
 
-	iaf := IncrementerAbstractFactory{}
-	b := iaf.create(2)
-	err := b.Inc()
+	factory := &IncrementerAbstractFactory{}
+	aa := factory.create(5)
+	aa.Inc()
+	fmt.Println(aa)
+
+	iaf := &IncrementerAbstractFactory{}
+	bb := iaf.create(2)
+	err := bb.Inc()
 	if err != nil {
 		fmt.Println(err)
 	}
-
 }
