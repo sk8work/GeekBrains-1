@@ -9,32 +9,18 @@ import (
 type Message struct {
 	Name string
 	Body string
-	Time int
+	Time int64
 }
 
 func main() {
-	m1 := Message{"Alice", "Hello", 1234567893218351353}
+	m := Message{"Alice", "Hello", 1294706395881547000}
 
-	marshal, err := json.Marshal(m1)
+	b, err := json.Marshal(m)
 	if err != nil {
 		log.Println(err)
 		return
 	}
+	fmt.Println(b)
 
-	fmt.Println(marshal)
-	fmt.Println(string(marshal))
-
-	stringMarshal := string(marshal)
-	fmt.Println(stringMarshal)
-	byteStringMarshal := []byte(stringMarshal)
-	fmt.Println(byteStringMarshal)
-
-	m2 := Message{}
-	err1 := json.Unmarshal(byteStringMarshal, &m2)
-	if err1 != nil {
-		log.Println(err1)
-		return
-	}
-	fmt.Println(m2)
-	// fmt.Println(string(b))
+	fmt.Println(string(b))
 }

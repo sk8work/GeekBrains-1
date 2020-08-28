@@ -7,21 +7,23 @@ import (
 )
 
 type Message struct {
-	Name string
+	Name string `json:"name"`
 	Body string
-	Time int
+	Time int64 `json: ommitempty`
 }
 
 func main() {
-	jsonString := "{\"Name\": \"Alice\", \"Body\": \"Hello\", \"Time\": 129470639588154700}"
-	b := []byte(jsonString)
-	m := Message{}
+	jsonStr := "{\"Name\": \"Alice\", \"Body\": \"Hello\", \"Time\": 1294706395881547000}"
 
-	err1 := json.Unmarshal(b, &m)
-	if err1 != nil {
-		log.Println(err1)
+	b := []byte(jsonStr)
+	m := Message{}
+	err := json.Unmarshal(b, &m)
+	if err != nil {
+		log.Println(err)
 		return
 	}
-	fmt.Println(m)
-	fmt.Println(string(b))
+
+	fmt.Printf("%v", m)
+
+	fmt.Println(m.Name)
 }

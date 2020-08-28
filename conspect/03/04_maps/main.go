@@ -5,24 +5,19 @@ import (
 )
 
 func main() {
-	// just a sample - var x map[string]int
+	var x map[string]int
+	fmt.Println(x)
 
-	// Создаем и изменяем карты, функция delete
 	addressBook := make(map[string][]int)
-	addressBook["Eugene"] = []int{89520321452}
-	fmt.Println(addressBook)
-	addressBook["Eugene"] = []int{32135512352}
-	addressBook["Eugene"] = append(addressBook["Eugene"], 6543213135)
-	addressBook["Alex"] = []int{321353235132}
-	fmt.Println(addressBook)
-	// delete(addressBook, "Eugene")
-	// fmt.Println(addressBook)
+	addressBook["firstAbonent"] = append(addressBook["firstAbonent"], 89991234567)
+	addressBook["firstAbonent"] = append(addressBook["firstAbonent"], 87775648912)
 
-	// Итерируемся по значениям
-	for name, numbers := range addressBook {
-		fmt.Println("Abonent:", name)
-		for _, number := range numbers {
-			fmt.Printf("\t %v\n", number)
+	addressBook["secondAbonent"] = append(addressBook["secondAbonent"], 89993215465)
+	fmt.Println(addressBook)
+	for i, _ := range addressBook {
+		fmt.Println(i)
+		for _, k := range addressBook[i] {
+			fmt.Println("\t", k)
 		}
 	}
 }

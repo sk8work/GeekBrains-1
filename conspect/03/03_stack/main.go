@@ -6,14 +6,14 @@ import (
 )
 
 func main() {
-	stack.Push("text1")
-	stack.Push("text2")
-	stack.Push("text3")
+	stack.Push("This text")
+	stack.Push("Will be in stack")
+	stack.Push("Untill the first call in 'pop'")
 
 	fmt.Println(stack.Pop())
 	fmt.Println(stack.Pop())
 
-	stack.Push("text4")
+	stack.Push("Enter some else text")
 	fmt.Println(stack.Pop())
 	fmt.Println(stack.Pop())
 }

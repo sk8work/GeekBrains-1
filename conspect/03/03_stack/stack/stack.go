@@ -1,21 +1,20 @@
 package stack
 
-// x := make([]string, 0, 0)
 var x []string
 
-// Push - adding a new element into stack
+// Push добавит новый элемент в стек
 func Push(str string) {
 	x = append(x, str)
 }
 
-// Pop - returns lust adding element
+// Pop
 func Pop() string {
-	numOfElements := len(x)
-	// When stack is empty, returns empty string
-	if numOfElements == 0 {
+	numOfElems := len(x)
+	// Когда стек будет пустым, он вернет пустую строку
+	if numOfElems == 0 {
 		return ""
 	}
-	popElem := x[numOfElements-1]
-	x = x[:numOfElements-1]
+	popElem := x[numOfElems-1]
+	x = x[:numOfElems-1]
 	return popElem
 }

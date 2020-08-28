@@ -30,4 +30,19 @@ func main() {
 	sl3[1] = 666
 	fmt.Println(sl1, len(sl1), cap(sl1))
 	fmt.Println(sl3, len(sl3), cap(sl3))
+
+	lsbasic := make([]int, 10, 10)
+	for i, _ := range lsbasic {
+		lsbasic[i] = i
+	}
+	fmt.Println(lsbasic)
+	lscopy := make([]int, 10, 10)
+	copy(lscopy, lsbasic)
+	fmt.Println(lscopy)
+	lsappend := make([]int, 10, 10)
+	fmt.Println(lsappend)
+	for _, v := range lsbasic {
+		lsappend = append(lsappend, v)
+	}
+	fmt.Println(lsappend)
 }
